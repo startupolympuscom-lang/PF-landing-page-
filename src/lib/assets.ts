@@ -7,9 +7,9 @@
 
 export const ASSETS = {
   logo: {
-    orange: "/assets/logo/peerfit-logo-orange.svg",
-    white: "/assets/logo/peerfit-logo-white.svg",
-    black: "/assets/logo/peerfit-logo-black.svg",
+    orange: "/assets/logo/peerfit-logo-orange.png",
+    white: "/assets/logo/peerfit-logo-white.png",
+    black: "/assets/logo/peerfit-logo-black.png",
     icon: "/assets/logo/peerfit-icon.svg",
   },
   images: {
