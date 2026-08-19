@@ -4,11 +4,11 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 
 const LINKS = [
-  { label: "Pillars", href: "#pillars" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "Our story", href: "#story" },
-  { label: "Community", href: "#gallery" },
-  { label: "App", href: "#app" },
+  { label: "Features", href: "#features" },
+  { label: "Sports", href: "#sports" },
+  { label: "Community", href: "#story" },
+  { label: "Pricing", href: "#app" },
 ];
 
 export function Navbar() {
@@ -25,39 +25,45 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-deep-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
+        scrolled ? "bg-pure-white/90 backdrop-blur-lg border-b border-black/5 shadow-sm" : "bg-pure-white"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="#top" className="z-10">
-          <Logo variant="white" className="h-7 text-xl" />
+          <Logo variant="orange" className="h-7 text-xl" />
         </a>
 
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-9 md:flex">
           {LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-warm-gray transition-colors hover:text-pure-white"
+              className="text-sm font-medium text-deep-black/70 transition-colors hover:text-deep-black"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href="#app"
+            className="inline-flex items-center justify-center rounded-full border border-black/10 px-5 py-2.5 text-sm font-semibold text-deep-black transition-colors hover:border-black/25 hover:bg-black/[0.03]"
+          >
+            Log in
+          </a>
           <a
             href="#app"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-peerfit-orange px-5 py-2.5 text-sm font-semibold text-pure-white transition-transform duration-300 hover:scale-105"
           >
-            <span className="relative z-10">Join the movement</span>
+            <span className="relative z-10">Sign up free</span>
             <span className="absolute inset-0 -z-0 bg-gradient-to-r from-electric-orange to-peerfit-orange opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </a>
         </div>
 
         <button
           type="button"
-          className="z-10 text-pure-white md:hidden"
+          className="z-10 text-deep-black md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -72,7 +78,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-white/10 bg-deep-black md:hidden"
+            className="overflow-hidden border-t border-black/5 bg-pure-white md:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {LINKS.map((link) => (
@@ -80,7 +86,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-2 py-3 text-base font-medium text-warm-gray hover:bg-white/5 hover:text-pure-white"
+                  className="rounded-lg px-2 py-3 text-base font-medium text-deep-black/70 hover:bg-black/[0.03] hover:text-deep-black"
                 >
                   {link.label}
                 </a>
@@ -88,9 +94,16 @@ export function Navbar() {
               <a
                 href="#app"
                 onClick={() => setOpen(false)}
+                className="mt-2 rounded-full border border-black/10 px-5 py-3 text-center text-sm font-semibold text-deep-black"
+              >
+                Log in
+              </a>
+              <a
+                href="#app"
+                onClick={() => setOpen(false)}
                 className="mt-2 rounded-full bg-peerfit-orange px-5 py-3 text-center text-sm font-semibold text-pure-white"
               >
-                Join the movement
+                Sign up free
               </a>
             </div>
           </motion.div>

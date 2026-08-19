@@ -7,10 +7,10 @@ const FOOTER_LINKS = [
   {
     heading: "Product",
     links: [
-      { label: "Pillars", href: "#pillars" },
       { label: "Features", href: "#features" },
       { label: "How it works", href: "#how-it-works" },
-      { label: "Community", href: "#gallery" },
+      { label: "Sports", href: "#sports" },
+      { label: "Community", href: "#story" },
       { label: "Download", href: "#app" },
     ],
   },

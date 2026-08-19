@@ -55,8 +55,8 @@ html {
 }
 
 body {
-  background: var(--color-deep-black);
-  color: var(--color-pure-white);
+  background: var(--color-pure-white);
+  color: var(--color-deep-black);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -73,7 +73,7 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-deep-black);
+  background: #f2f2f2;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(var(--color-peerfit-orange), var(--color-electric-orange));
@@ -88,6 +88,11 @@ body {
 }
 
 .dot-grid {
+  background-image: radial-gradient(rgba(5, 5, 5, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.dot-grid-dark {
   background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
   background-size: 22px 22px;
 }

@@ -1,31 +1,25 @@
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { Marquee } from "./components/Marquee";
-import { BrandEssence } from "./components/BrandEssence";
-import { Pillars } from "./components/Pillars";
-import { Features } from "./components/Features";
 import { HowItWorks } from "./components/HowItWorks";
+import { Features } from "./components/Features";
+import { SportsGrid } from "./components/SportsGrid";
 import { Origin } from "./components/Origin";
-import { Gallery } from "./components/Gallery";
-import { AppShowcase } from "./components/AppShowcase";
-import { CTABanner } from "./components/CTABanner";
+import { Testimonials } from "./components/Testimonials";
+import { FinalCTA } from "./components/FinalCTA";
 import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-deep-black text-pure-white">
+    <div className="min-h-screen bg-pure-white text-deep-black">
       <Navbar />
       <main>
         <Hero />
-        <Marquee />
-        <BrandEssence />
-        <Pillars />
-        <Features />
         <HowItWorks />
+        <Features />
+        <SportsGrid />
         <Origin />
-        <Gallery />
-        <AppShowcase />
-        <CTABanner />
+        <Testimonials />
+        <FinalCTA />
       </main>
       <Footer />
     </div>
