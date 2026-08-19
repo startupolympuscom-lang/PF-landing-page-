@@ -1,4 +1,5 @@
 import { MapPin, CalendarPlus, MessageCircle, Footprints } from "lucide-react";
+import { DotGridWash, RingAccent } from "./Decor";
 import { Reveal } from "./Reveal";
 
 const STEPS = [
@@ -44,7 +45,9 @@ export function HowItWorks() {
         </h2>
       </Reveal>
 
-      <div className="relative mt-16 rounded-3xl border border-black/5 bg-black/[0.015] px-6 py-12 sm:px-12">
+      <div className="relative mt-16 overflow-hidden rounded-3xl border border-black/5 bg-black/[0.015] px-6 py-12 sm:px-12">
+        <DotGridWash className="inset-0" />
+        <RingAccent className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 text-peerfit-orange/15" />
         <div className="relative grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           <div className="absolute left-[12%] right-[12%] top-11 hidden border-t-2 border-dashed border-peerfit-orange/30 lg:block" />
 

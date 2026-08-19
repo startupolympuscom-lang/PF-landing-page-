@@ -1,6 +1,7 @@
 import { Search, Gamepad2, MessageCircle, Trophy, Phone, Video, Send } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { ASSETS } from "../lib/assets";
+import { PlusCluster } from "./Decor";
 import { Reveal } from "./Reveal";
 
 function EventsPreview() {
@@ -153,6 +154,7 @@ const FEATURES = [
 export function Features() {
   return (
     <section id="features" className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <PlusCluster className="pointer-events-none absolute right-4 top-4 hidden h-16 w-24 text-peerfit-orange/20 sm:block" />
       <Reveal className="mx-auto max-w-2xl text-center">
         <span className="text-xs font-bold uppercase tracking-widest text-peerfit-orange">
           Powerful features

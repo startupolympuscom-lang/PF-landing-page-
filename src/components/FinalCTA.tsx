@@ -1,6 +1,7 @@
 import { Apple, Play as PlayIcon, Users } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { ASSETS } from "../lib/assets";
+import { PlusCluster, RingAccent } from "./Decor";
 import { Reveal } from "./Reveal";
 
 // Deterministic pseudo-random pattern — a stand-in for a real QR code.
@@ -29,6 +30,8 @@ export function FinalCTA() {
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl bg-peerfit-orange px-8 py-12 sm:px-14 sm:py-16">
           <div className="diagonal-lines pointer-events-none absolute inset-0 opacity-10" />
+          <RingAccent className="pointer-events-none absolute -left-10 -top-10 h-32 w-32 text-pure-white/20" />
+          <PlusCluster className="pointer-events-none absolute bottom-6 left-1/3 hidden h-12 w-16 text-pure-white/25 sm:block" />
 
           <div className="relative flex flex-col items-center justify-between gap-10 lg:flex-row">
             <div className="text-center lg:text-left">

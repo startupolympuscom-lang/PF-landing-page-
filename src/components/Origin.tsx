@@ -1,5 +1,6 @@
 import { ImageWithFallback } from "./ImageWithFallback";
 import { ASSETS } from "../lib/assets";
+import { DotGridWash } from "./Decor";
 import { Reveal } from "./Reveal";
 
 const STATS = [
@@ -11,8 +12,10 @@ const STATS = [
 
 export function Origin() {
   return (
-    <section id="story" className="relative border-y border-black/5 bg-black/[0.015] py-20">
-      <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+    <section id="story" className="relative overflow-hidden border-y border-black/5 bg-black/[0.015] py-20">
+      <DotGridWash className="inset-0" />
+      <div className="diagonal-lines pointer-events-none absolute inset-y-0 right-0 w-64 opacity-[0.07]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
         <Reveal>
           <span className="text-xs font-bold uppercase tracking-widest text-peerfit-orange">
             Our Story

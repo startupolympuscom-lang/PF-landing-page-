@@ -3,6 +3,7 @@ import { ArrowRight, Play, MapPin, Users, Footprints, Star, Check } from "lucide
 import { ImageWithFallback } from "./ImageWithFallback";
 import { ASSETS } from "../lib/assets";
 import { AvatarStack } from "./AvatarStack";
+import { DotGridWash, PlusCluster } from "./Decor";
 import { MapPinBadge } from "./MapPinBadge";
 import { PhoneMockup } from "./PhoneMockup";
 import { Reveal } from "./Reveal";
@@ -57,12 +58,19 @@ function MatchConfirmedCard() {
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pb-20 pt-32 lg:pt-36">
+      <div
+        className="pointer-events-none absolute -right-24 -top-24 h-[30rem] w-[30rem] rounded-full bg-peerfit-orange/10 blur-[110px]"
+        aria-hidden="true"
+      />
+      <DotGridWash className="inset-x-0 top-0 h-[36rem]" />
+
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:px-8">
         <div>
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.02] px-4 py-1.5 text-xs font-semibold text-deep-black/70">
+            <span className="relative inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.02] px-4 py-1.5 text-xs font-semibold text-deep-black/70">
               <span className="h-1.5 w-1.5 rounded-full bg-peerfit-orange" />
               Your sports community, everywhere
+              <PlusCluster className="pointer-events-none absolute -left-10 -top-8 h-10 w-14 text-peerfit-orange/30" />
             </span>
           </Reveal>
 
@@ -137,6 +145,24 @@ export function Hero() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
           </div>
+
+          <svg
+            viewBox="0 0 400 560"
+            className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+            aria-hidden="true"
+          >
+            <motion.path
+              d="M20,90 C140,40 220,140 380,110 C300,260 260,330 40,380"
+              fill="none"
+              stroke="var(--color-peerfit-orange)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeDasharray="1 10"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.55 }}
+              transition={{ duration: 2.4, ease: "easeInOut", delay: 0.6 }}
+            />
+          </svg>
 
           <MapPinBadge
             icon={MapPin}

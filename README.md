@@ -35,7 +35,7 @@ Just drop files into `public/assets/` using these exact paths:
 | Sport tile — padel | `public/assets/images/sport-padel.jpg` |
 | Testimonial avatars | `public/assets/images/avatar-{daniel,sophie,chris}.jpg` |
 | Hero social-proof avatar stack | `public/assets/images/avatar-stack-{1,2,3,4}.jpg` |
-| Hero phone mockup (Match Confirmed screen) | `public/assets/mockups/app-screen-match-confirmed.png` |
+| Hero phone mockup (Match Confirmed screen) | `public/assets/mockups/app-screen-match-confirmed.png` — already in place (real app dashboard screenshot) |
 | Founder photo (Yassine Zniber) | `public/assets/images/founder-yassine-zniber.jpg` |
 
 The manifest lives in `src/lib/assets.ts` — add or rename paths there if you

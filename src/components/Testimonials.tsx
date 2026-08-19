@@ -1,6 +1,7 @@
 import { Quote, Users, CalendarCheck, Trophy } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { ASSETS } from "../lib/assets";
+import { RingAccent } from "./Decor";
 import { Reveal } from "./Reveal";
 
 const QUOTES = [
@@ -36,6 +37,7 @@ const STATS = [
 export function Testimonials() {
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+      <RingAccent className="pointer-events-none absolute -left-6 top-8 hidden h-20 w-20 text-peerfit-orange/15 lg:block" />
       <Reveal className="mx-auto max-w-2xl text-center">
         <span className="text-xs font-bold uppercase tracking-widest text-peerfit-orange">
           Loved by our community

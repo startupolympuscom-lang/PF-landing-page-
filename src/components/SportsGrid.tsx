@@ -1,6 +1,7 @@
 import { CircleDot, Target, Footprints, Waves, Flag, Volleyball, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import { ASSETS } from "../lib/assets";
+import { WavyLine } from "./Decor";
 import { Reveal } from "./Reveal";
 
 const SPORTS = [
@@ -22,6 +23,7 @@ export function SportsGrid() {
         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-deep-black sm:text-4xl">
           Play what you love
         </h2>
+        <WavyLine className="mx-auto mt-4 h-4 w-32 text-peerfit-orange/40" />
       </Reveal>
 
       <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
