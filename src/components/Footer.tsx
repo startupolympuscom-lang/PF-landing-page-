@@ -8,6 +8,7 @@ const FOOTER_LINKS = [
     heading: "Product",
     links: [
       { label: "Pillars", href: "#pillars" },
+      { label: "Features", href: "#features" },
       { label: "How it works", href: "#how-it-works" },
       { label: "Community", href: "#gallery" },
       { label: "Download", href: "#app" },
@@ -16,7 +17,7 @@ const FOOTER_LINKS = [
   {
     heading: "Company",
     links: [
-      { label: "About", href: "#top" },
+      { label: "About", href: "#story" },
       { label: "Careers", href: "#" },
       { label: "Press", href: "#" },
       { label: "Contact", href: "#" },

@@ -98,7 +98,7 @@ export function Hero() {
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           >
             <p className="text-xs text-warm-gray">Sports covered</p>
-            <p className="font-display text-xl font-bold text-electric-orange">All of them</p>
+            <p className="font-display text-xl font-bold text-electric-orange">20+</p>
           </motion.div>
         </motion.div>
       </div>

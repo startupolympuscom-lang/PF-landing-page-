@@ -6,6 +6,7 @@ import { Logo } from "./Logo";
 const LINKS = [
   { label: "Pillars", href: "#pillars" },
   { label: "How it works", href: "#how-it-works" },
+  { label: "Our story", href: "#story" },
   { label: "Community", href: "#gallery" },
   { label: "App", href: "#app" },
 ];

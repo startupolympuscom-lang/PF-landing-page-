@@ -51,13 +51,21 @@ wordmark.
 - `src/index.css` — Tailwind v4 theme tokens (brand colors, fonts,
   animations) via `@theme`.
 
+## Company facts baked into the copy
+
+- Peerfit — a Moroccan startup founded in 2025, incubated at **Startup
+  Olympus** — is unrelated to the US company "Peerfit" (Tampa, founded
+  2011, acquired by FitOn in 2022). Don't confuse the two.
+- Collaborative app to find sporting partners across **20+ sports**: create
+  or join sporting events, build communities, and rate other athletes on
+  performance. This is reflected in `Features.tsx` and `Origin.tsx`.
+
 ## Known follow-ups
 
 - **Newsletter form** (`Footer.tsx`) is UI-only — wire `NewsletterForm`'s
   `handleSubmit` to your ESP/waitlist endpoint.
-- **Founders / About section**: intentionally omitted. The "Peerfit" name is
-  already used by a couple of unrelated existing companies/apps, so no
-  founder bios were fabricated. Add a `Founders` component with your real
-  team info whenever you're ready.
+- **Founder name(s)**: not yet added anywhere on the page — pending
+  confirmation of correct spelling from the founding team before crediting
+  anyone by name.
 - Nav/footer links to `#` (Careers, Press, Contact, legal pages) are
   placeholders pending real destinations.
