@@ -25,4 +25,7 @@ export const ASSETS = {
     bottle: "/assets/mockups/bottle.png",
     darkCard: "/assets/mockups/app-dark-card.png",
   },
+  people: {
+    yassineZniber: "/assets/images/founder-yassine-zniber.jpg",
+  },
 } as const;

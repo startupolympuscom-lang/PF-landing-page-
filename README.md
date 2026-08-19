@@ -64,8 +64,8 @@ wordmark.
 
 - **Newsletter form** (`Footer.tsx`) is UI-only — wire `NewsletterForm`'s
   `handleSubmit` to your ESP/waitlist endpoint.
-- **Founder name(s)**: not yet added anywhere on the page — pending
-  confirmation of correct spelling from the founding team before crediting
-  anyone by name.
+- **Founder photo**: the founder credit card in `Origin.tsx` (Yassine
+  Zniber) currently falls back to a "YZ" initials avatar. Drop a photo at
+  `public/assets/images/founder-yassine-zniber.jpg` to upgrade it.
 - Nav/footer links to `#` (Careers, Press, Contact, legal pages) are
   placeholders pending real destinations.
