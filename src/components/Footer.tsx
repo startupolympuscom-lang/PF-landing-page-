@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Logo } from "./Logo";
 import { InstagramIcon, XIcon, LinkedInIcon, YoutubeIcon } from "./SocialIcons";
 
@@ -40,18 +40,37 @@ const SOCIALS = [
   { icon: YoutubeIcon, href: "#", label: "YouTube" },
 ];
 
+type FormStatus = "idle" | "loading" | "success" | "error";
+
 function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    // TODO: wire this up to your email provider / waitlist endpoint.
-    setSubmitted(true);
+    if (!email || status === "loading") return;
+
+    setStatus("loading");
+    try {
+      const { supabase } = await import("../lib/supabase");
+      const { error } = await supabase.from("waitlist").insert({ email });
+
+      if (error) {
+        setStatus("error");
+        setErrorMessage(error.code === "23505" ? "You're already on the list!" : "Something went wrong — try again.");
+        return;
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error — check your connection and try again.");
+      return;
+    }
+
+    setStatus("success");
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <p className="flex items-center gap-2 text-sm font-semibold text-electric-orange">
         <Check size={16} /> You're on the list — see you on Peerfit.
@@ -60,22 +79,27 @@ function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-sm gap-2">
-      <input
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@email.com"
-        className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-pure-white placeholder:text-warm-gray/60 outline-none transition-colors focus:border-peerfit-orange"
-      />
-      <button
-        type="submit"
-        className="flex shrink-0 items-center justify-center rounded-full bg-peerfit-orange p-2.5 text-pure-white transition-transform duration-300 hover:scale-110"
-        aria-label="Subscribe"
-      >
-        <ArrowRight size={18} />
-      </button>
+    <form onSubmit={handleSubmit} className="w-full max-w-sm">
+      <div className="flex w-full gap-2">
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@email.com"
+          disabled={status === "loading"}
+          className="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-pure-white placeholder:text-warm-gray/60 outline-none transition-colors focus:border-peerfit-orange disabled:opacity-60"
+        />
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="flex shrink-0 items-center justify-center rounded-full bg-peerfit-orange p-2.5 text-pure-white transition-transform duration-300 hover:scale-110 disabled:opacity-60 disabled:hover:scale-100"
+          aria-label="Subscribe"
+        >
+          {status === "loading" ? <Loader2 size={18} className="animate-spin" /> : <ArrowRight size={18} />}
+        </button>
+      </div>
+      {status === "error" && <p className="mt-2 text-xs text-red-400">{errorMessage}</p>}
     </form>
   );
 }

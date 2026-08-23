@@ -66,10 +66,43 @@ wordmark.
   or join sporting events, build communities, and rate other athletes on
   performance.
 
+## Supabase (waitlist form)
+
+The footer's email-capture form (`NewsletterForm` in `Footer.tsx`) inserts
+into a `waitlist` table via `src/lib/supabase.ts`.
+
+1. Copy `.env.local.example` to `.env.local` (already done in this repo —
+   `.env.local` is gitignored, so re-add it in any fresh clone/deploy
+   target) with your project's URL and **publishable/anon** key:
+   ```
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+   ```
+   Vite only exposes env vars prefixed with `VITE_` to client code — don't
+   use the Next.js `NEXT_PUBLIC_` prefix here.
+2. In the Supabase SQL editor, create the table and an insert policy for
+   the anon key (this repo has no server, so RLS is what protects the
+   table — the policy below only allows inserts, never reads/updates):
+   ```sql
+   create table if not exists public.waitlist (
+     id uuid primary key default gen_random_uuid(),
+     email text not null unique,
+     created_at timestamptz not null default now()
+   );
+
+   alter table public.waitlist enable row level security;
+
+   create policy "Allow anonymous inserts"
+     on public.waitlist
+     for insert
+     to anon
+     with check (true);
+   ```
+3. That's it — no server/middleware/SSR needed since this is a static Vite
+   SPA, not Next.js.
+
 ## Known follow-ups
 
-- **Newsletter form** (`Footer.tsx`) is UI-only — wire `NewsletterForm`'s
-  `handleSubmit` to your ESP/waitlist endpoint.
 - **App Store / Google Play links** (`FinalCTA.tsx`, `Navbar.tsx`) point to
   `#` — swap in real store URLs once published.
 - **QR code** in `FinalCTA.tsx` (`FauxQR`) is a decorative placeholder
